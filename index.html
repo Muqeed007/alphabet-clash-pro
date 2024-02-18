@@ -13,14 +13,15 @@
 
 <body class="">
     <main class="min-h-screen bg-[#1E1E1E] bg-[url(images/background.png)] bg-no-repeat bg-center">
-        <section class="home min-h-screen text-white flex justify-center items-center hidden">
+        <section id="home-screen" class="min-h-screen text-white flex justify-center items-center">
             <div class="flex flex-col items-center gap-10">
                 <h1 class="text-8xl font-anton">Alphabet Clash Pro</h1>
                 <p>Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
-                <button class="btn bg-white text-black">Play Now</button>
+                <button onclick="play()" class="btn bg-white text-black">Play Now</button>
             </div>
         </section>
-        <section class="play-ground">
+
+        <section id="play-ground" class="hidden">
             <div class="flex flex-col justify-center items-center gap-10 pt-10">
                 <!-- screen -->
                 <div
@@ -84,10 +85,21 @@
                 </div>
             </div>
         </section>
-        <section>
+
+        <section class="score hidden flex justify-center items-center min-h-screen">
+            <div class="text-white text-center space-y-8 bg-[#ffffff33] p-6 rounded-xl">
+                <h1 class="text-8xl">
+                    <span class="font-extrabold">Score:</span>
+                    <span>14</span>
+                </h1>
+                <button class="btn">Play Again</button>
+                <p>Practice makes you pro</p>
+            </div>
 
         </section>
     </main>
+    <script src="Scripts/uitillity.js"></script>
+    <script src="Scripts/script.js"></script>
 </body>
 
 </html>
