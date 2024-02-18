@@ -16,8 +16,6 @@ function continueGame(){
 
     // set background color
     setBackGroundColorById(alphabet);
-    // removeBackGroundColorById(alphabet);
-
 }
 
 function play(){
@@ -33,9 +31,27 @@ function handleKeyboardKeyupEvent(event){
     const expectedAlphabet = currentAlphabet.toLowerCase();
 
     if(playerPressed === expectedAlphabet){
-        console.log('you get a point');
+        // update score
+        // 1. get current score
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoreText = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoreText);
+        // increase score by 1
+        const newScore = currentScore + 1;
+        // show update score
+        currentScoreElement.innerText = newScore;
+        // start new round
+        removeBackGroundColorById(expectedAlphabet);
+        continueGame();
     }else{
-        console.log('you lost a life');
+        // step 1. get current life number
+        const currentLifElement = document.getElementById('current-life');
+        const currentLifeText = currentLifElement.innerText;
+        const currentLife = parseInt(currentLifeText);
+        // step 2. reduce life count
+        const newLife = currentLife - 1;
+        // step 3. display updated life
+        currentLifElement.innerText = newLife;
     }
 }
 document.addEventListener('keyup',handleKeyboardKeyupEvent);
