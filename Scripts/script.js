@@ -6,9 +6,8 @@
 //     const playgroundSection = document.getElementById('play-ground');
 //     playgroundSection.classList.remove('hidden');   
 // }
-
 function continueGame(){
-    // generating randem alphabet
+    // generating random alphabet
     const alphabet = getRandomAlphabet();
 
     // set randomly generated alphabet on screen
@@ -26,3 +25,17 @@ function play(){
     showElementById('play-ground');
     continueGame();
 }
+function handleKeyboardKeyupEvent(event){
+    const playerPressed = event.key;
+
+    const currentAlphabetElement = document.getElementById('current-alphabet');
+    const currentAlphabet = currentAlphabetElement.innerText;
+    const expectedAlphabet = currentAlphabet.toLowerCase();
+
+    if(playerPressed === expectedAlphabet){
+        console.log('you get a point');
+    }else{
+        console.log('you lost a life');
+    }
+}
+document.addEventListener('keyup',handleKeyboardKeyupEvent);
